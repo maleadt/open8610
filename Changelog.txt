@@ -1,0 +1,16 @@
+
+08/08/2011 UPDATE PATCH 2.1 FOR open8610
+
+-Changed write_data function to enable effective writing
+-Fixed some wrong datatypes (did not compile on my windows 7 x64 machine), changing some int to short and some PDWORD to ULONG
+-Fixed wrong calculation for temperature outdoor2
+-Removed some unused methods (only for WS2300)
+-Fixed some other minor errors
+
+Files modified:
+memory_map.txt
+memreset810.c
+rw8610.c
+rw8610.h
+win8610.c
+win8610.h

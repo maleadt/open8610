@@ -1,0 +1,134 @@
+2006 Phil Rayner - 2011 Emanuele Iannone
+
+Address: 0000 - Data: 35	LSN: ones of minutes MSN: tens of minutes
+Address: 0001 - Data: 11	LSN: ones of hours MSN: tens of hours
+Address: 0002 - Data: 27	LSN: day of week (sun) MSN: ones of day of month
+Address: 0003 - Data: 11	LSN: tens of dayof month MSN: ones of months
+Address: 0004 - Data: 61	LSN: tens of month MSN-ones of year
+Address: 0005 - Data: 00	LSN:tens of year MSN: ?
+
+Address: 0006 - Data: 00	?
+Address: 0007 - Data: FF	?
+
+Address: 0008 - Data: 01	Channels active
+Address: 0009 - Data: 13	No of stored data history (just total amount - not a pointer when memory loops)
+Address: 000A - Data: 00	number data history - hundreds/thousands?
+Address: 000B - Data: 00	- something about looping? Changes to 04 after 1 loop
+Address: 000C - Data: 01	LSN: Channels recorded in history MSN: something about looping
+
+Address: 000D - Data: FF	?
+Address: 000E - Data: FF	?
+Address: 000F - Data: 00
+Address: 0010 - Data: 00
+Address: 0011 - Data: 00
+Address: 0012 - Data: 00
+Address: 0013 - Data: 00
+Address: 0014 - Data: 00
+Address: 0015 - Data: 00
+Address: 0016 - Data: 00
+Address: 0017 - Data: 00
+Address: 0018 - Data: 00
+Address: 0019 - Data: 00
+Address: 001A - Data: 00
+Address: 001B - Data: 00
+Address: 001C - Data: 00
+Address: 001D - Data: 00
+Address: 001E - Data: 00
+Address: 001F - Data: 00
+Address: 0020 - Data: 00
+
+Address: 0021 - Data: 84	RH0 Hi alarm 84%
+Address: 0022 - Data: 13	RH0 Lo alarm 13%
+Address: 0023 - Data: 73	RH1 Hi alarm 73%
+Address: 0024 - Data: 09	RH1 Lo alarm 09%
+Address: 0025 - Data: 70	RH2 Hi alarm 70% 
+Address: 0026 - Data: 10	RH2 Lo alarm 10% 
+Address: 0027 - Data: 70	RH3 Hi alarm 70% 
+Address: 0028 - Data: 10	RH3 Lo alarm 10% 
+Address: 0029 - Data: 70	RH4 Hi alarm 70% 
+Address: 002A - Data: 10	RH4 Lo alarm 10% 
+Address: 002B - Data: 70	RH5 Hi alarm 70% 
+Address: 002C - Data: 10	RH5 Lo alarm 10% 
+Address: 002D - Data: 00	
+Address: 002E - Data: 12	Temp0 Hi alarm 1s, 0.1s
+Address: 002F - Data: 06	LSB: Temp0 Hi alarm 10 (+30C) -actual 31.2C
+Address: 0030 - Data: 10	MSB: Temp0 Lo alarm 0.1s
+Address: 0031 - Data: 42	Temp0 Low alarm (10s,units) +30C actual 11.1C
+Address: 0032 - Data: 00	
+Address: 0033 - Data: 33	Temp1 Hi alarm 1s, 0.1s
+Address: 0034 - Data: 06	LSB: Temp1 Hi alarm 10s (+30C) -actual 33.3C
+Address: 0035 - Data: 10	MSB: Temp1 Lo alarm 0.1s 
+Address: 0036 - Data: 41	Temp1 Low alarm (10s, units) +30C -actual 11.1C 
+Address: 0037 - Data: 00	
+Address: 0038 - Data: 00	Temp2 Hi alarm 1s, 0.1s
+Address: 0039 - Data: 06	LSB: Temp2 Hi alarm 10s (+30C) -actual 30.0C
+Address: 003A - Data: 00	MSB: Temp2 Lo alarm 0.1s
+Address: 003B - Data: 40	Temp2 Low alarm (10s, units) +30C -actual 10.0C
+Address: 003C - Data: 00	
+Address: 003D - Data: 00	Temp3 Hi alarm 1s, 0.1s
+Address: 003E - Data: 06	LSB: Temp3 Hi alarm 10s (+30C) -actual 30.0C
+Address: 003F - Data: 00	MSB: Temp3 Lo alarm 0.1s
+Address: 0040 - Data: 40	Temp3 Low alarm (10s, units) +30C -actual 10.0C
+Address: 0041 - Data: 00
+Address: 0042 - Data: 00	Temp4 Hi alarm 1s, 0.1s
+Address: 0043 - Data: 06	LSB: Temp4 Hi alarm 10s (+30C) -actual 30.0C
+Address: 0044 - Data: 00	MSB: Temp4 Lo alarm 0.1s
+Address: 0045 - Data: 40	Temp4 Low alarm (10s, units) +30C -actual 10.0C
+Address: 0046 - Data: 00
+Address: 0047 - Data: 00	Temp5 Hi alarm 1s, 0.1s
+Address: 0048 - Data: 06	LSB: Temp5 Hi alarm 10s (+30C) -actual 30.0C
+Address: 0049 - Data: 00	MSB: Temp5 Lo alarm 0.1s
+Address: 004A - Data: 40	Temp5 Low alarm (10s, units) +30C -actual 10.0C
+
+Address: 004B - Data: 8E	?
+Address: 004C - Data: A2
+Address: 004D - Data: 9A
+Address: 004E - Data: 00
+Address: 004F - Data: 00
+Address: 0050 - Data: 07	?
+
+Address: 0051 - Data: AB	- Timestamp of last record downloaded by Data Recorder Software
+Address: 0052 - Data: AA	| The timestamp is expressed as number of ticks since 
+Address: 0053 - Data: AA	|
+Address: 0054 - Data: AA	|
+Address: 0055 - Data: 1C	| <- Every increment of this byte corresponds to 45'
+Address: 0056 - Data: E7	| <- Every increment of this byte corresponds to 8 days
+Address: 0057 - Data: E3	| <- Every increment of this byte corresponds to 5 years and 222 days
+Address: 0058 - Data: 40	- (MSB)
+
+Address: 0059 - Data: 9A	- N. of records downloaded since last change (ex. change n. of recorded sensors) - 1
+Address: 005A - Data: 01	| 
+Address: 005B - Data: 00	|
+Address: 005C - Data: 00	- (MSB of records downloaded) 
+
+Address: 005D - Data: 03	LSB: N. of sensors in last download
+Address: 005E - Data: 00
+Address: 005F - Data: 00
+Address: 0060 - Data: 00
+
+Address: 0061 - Data: FF
+Address: 0062 - Data: FF
+Address: 0063 - Data: FF
+
+History Data -1st set (10bytes per set with 2 channels recording -1ch=10bytes, 2ch =13bytes, 3ch=15bytes)
+temp data for a channel is all AAA if no sensor detected
+RH data is usually AA if channel is not detected
+Address: 0064 - Data: 30	Time -mins :30
+Address: 0065 - Data: 14	Time -Hours: 14
+Address: 0066 - Data: 12	Day :12th
+Address: 0067 - Data: 11	Month: 11th
+Address: 0068 - Data: 06	year: 2006
+Address: 0069 - Data: 67	Temp0: 1s,0.1s =16.7C
+Address: 006A - Data: 64	LSN: Temp0 10s (+30C) MSN: Temp1: 0.1s
+Address: 006B - Data: 42	Temp1: 10s, 1s =12.4C
+Address: 006C - Data: 62	Rh0 =62%
+Address: 006D - Data: 69	Rh1 =69%
+Address: 006E - Data: AA	Temp2 ?
+Address: 006F - Data: AA	Temp2 ?
+Address: 0070 - Data: FA	RH2 ?
+
+Next data point...
+
+Address: 00XX - Data: FF	First byte of data point to FF means end of history. Used as a delimiter when
+				rolling history
+
