@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
 		write_data(ws, 0x0009, 2, data);
 	}
 
-	read_safe(ws, 0x0009, 2, records, NULL);
+	read_safe(ws, 0x0009, 2, records);
 
 	printf("Data wiped if enable was used. Enable= %d\n", enable);
 	printf("Number of valid records now is %d\n", history_length(records));

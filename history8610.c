@@ -103,7 +103,7 @@ int main(int argc, char *argv[])
 	start_adr = start_rec * get_history_record_length(o_count) + HISTORY_BUFFER_ADR;
 	end_adr = end_rec * get_history_record_length(o_count) + HISTORY_BUFFER_ADR + get_history_record_length(o_count) - 1;
 		
-	if (read_safe(ws, start_adr, end_adr-start_adr + 1, data, NULL) == -1) {
+	if (read_safe(ws, start_adr, end_adr-start_adr + 1, data) == -1) {
 	  printf("\nError reading data\n");
 	  close_weatherstation(ws);
 	  fclose(fileptr);
