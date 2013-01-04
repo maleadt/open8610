@@ -1,0 +1,7 @@
+*.o
+
+dump8610
+history8610
+log8610
+log8610echo
+memreset8610
