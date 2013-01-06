@@ -17,7 +17,7 @@
  *
  * Input:   none
  * 
- * Output:  log last history record to a file
+ * Output:  log the last history record to STDOUT as well as a file
  * 
  * Returns: exits program
  *
@@ -26,7 +26,7 @@ void print_usage(void)
 {
 	printf("\n");
 	printf("log8610 - Read and interpret data from WS-8610 weather station\n");
-	printf("and write it to a log file. Perfect for a cron driven task.\n");
+	printf("and write it to STDOUT as well as a log file. Perfect for a cron driven task.\n");
 	printf("(C)2003 Kenneth Lavrsen.\n");
 	printf("(C)2005 Grzegorz Wisniewski,Sander Eerkes. (Version alfa)\n");
 	printf("(C)2006-7 Phil Rayner.\n");
@@ -127,6 +127,7 @@ int main(int argc, char *argv[])
 	         localtime(&basictime));
 
 	// Print out and leave
+        printf("%s %s",datestring, logline);
 	fprintf(fileptr,"%s %s",datestring, logline);
 	
 	fclose(fileptr);
