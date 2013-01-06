@@ -1,13 +1,13 @@
 /* Include file for the open8610 Linux specific functions
  */
- 
+
 #ifndef _INCLUDE_LINUX8610_H_
-#define _INCLUDE_LINUX8610_H_ 
+#define _INCLUDE_LINUX8610_H_
 
 #include <termios.h>
 #include <unistd.h>
 #include <netinet/in.h>
-#include <arpa/inet.h> 
+#include <arpa/inet.h>
 #include <sys/ioctl.h>
 #include <sys/socket.h>
 #include <netdb.h>
@@ -16,7 +16,7 @@
 
 #define BUFFER_SIZE 16384
 #define DELAY_CONST 1
-#define INIT_WAIT 500 
+#define INIT_WAIT 500
 
 #define BAUDRATE B300
 #define DEFAULT_SERIAL_DEVICE "/dev/ttyS0"

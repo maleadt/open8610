@@ -54,50 +54,50 @@
 #define MAX_APRS_HOSTS	6
 
 typedef struct {
-	char name[50];
-	int port;
+    char name[50];
+    int port;
 } hostdata;
 
 struct config_type
 {
-	char   serial_device_name[50];
-	char   citizen_weather_id[30];
-	char   citizen_weather_latitude[20];
-	char   citizen_weather_longitude[20];
-	hostdata aprs_host[MAX_APRS_HOSTS]; // max 6 possible aprs hosts 1 primary and 5 alternate
-	int    num_hosts;					// total defined hosts
-	char   weather_underground_id[30];
-	char   weather_underground_password[50];
-	char   timezone[6];                //not integer because of half hour time zones
-	double wind_speed_conv_factor;     //from m/s to km/h or miles/hour
-	int    temperature_conv;           //0=Celcius, 1=Fahrenheit
-	double rain_conv_factor;           //from mm to inch
-	double pressure_conv_factor;       //from hPa (=millibar) to mmHg
-	char   mysql_host[50];             //Either localhost, IP address or hostname
-	char   mysql_user[25];
-	char   mysql_passwd[25];
-	char   mysql_database[30];
-	int    mysql_port;                 //0 works for local connection
-	char   pgsql_connect[128];
-	char   pgsql_table[25];
-	char   pgsql_station[25];
-	int    log_level;
+    char   serial_device_name[50];
+    char   citizen_weather_id[30];
+    char   citizen_weather_latitude[20];
+    char   citizen_weather_longitude[20];
+    hostdata aprs_host[MAX_APRS_HOSTS]; // max 6 possible aprs hosts 1 primary and 5 alternate
+    int    num_hosts;					// total defined hosts
+    char   weather_underground_id[30];
+    char   weather_underground_password[50];
+    char   timezone[6];                //not integer because of half hour time zones
+    double wind_speed_conv_factor;     //from m/s to km/h or miles/hour
+    int    temperature_conv;           //0=Celcius, 1=Fahrenheit
+    double rain_conv_factor;           //from mm to inch
+    double pressure_conv_factor;       //from hPa (=millibar) to mmHg
+    char   mysql_host[50];             //Either localhost, IP address or hostname
+    char   mysql_user[25];
+    char   mysql_passwd[25];
+    char   mysql_database[30];
+    int    mysql_port;                 //0 works for local connection
+    char   pgsql_connect[128];
+    char   pgsql_table[25];
+    char   pgsql_station[25];
+    int    log_level;
 };
 
 struct timestamp
 {
-	int minute;
-	int hour;
-	int day;
-	int month;
-	int year;
+    int minute;
+    int hour;
+    int day;
+    int month;
+    int year;
 };
 
 struct history_record
 {
-  time_t time_stamp;
-  double Temp[4];
-  int    RH[4];
+    time_t time_stamp;
+    double Temp[4];
+    int    RH[4];
 };
 
 //calibration value for nanodelay function
@@ -159,10 +159,10 @@ int dewpoint_reset(WEATHERSTATION ws2300, char minmax);
 int humidity_indoor(unsigned char *data);
 
 void humidity_indoor_minmax(unsigned char *data,
-                        int *hum_min,
-                        int *hum_max,
-                        struct timestamp *time_min,
-                        struct timestamp *time_max);
+                            int *hum_min,
+                            int *hum_max,
+                            struct timestamp *time_min,
+                            struct timestamp *time_max);
 
 int humidity_indoor_reset(WEATHERSTATION ws2300, char minmax);
 
@@ -171,10 +171,10 @@ int humidity_outdoor2(unsigned char *data);
 int humidity_outdoor3(unsigned char *data);
 
 void humidity_outdoor_minmax(unsigned char *data,
-                        int *hum_min,
-                        int *hum_max,
-                        struct timestamp *time_min,
-                        struct timestamp *time_max);
+                             int *hum_min,
+                             int *hum_max,
+                             struct timestamp *time_min,
+                             struct timestamp *time_max);
 
 int humidity_outdoor_reset(WEATHERSTATION ws2300, char minmax);
 
@@ -202,8 +202,8 @@ int windchill_reset(WEATHERSTATION ws2300, char minmax);
 double rain_1h(unsigned char *data);
 
 void rain_1h_max(unsigned char *data,
-                   double *rain_max,
-                   struct timestamp *time_max);
+                 double *rain_max,
+                 struct timestamp *time_max);
 
 double rain_24h(unsigned char *date);
 
@@ -212,8 +212,8 @@ int rain_1h_max_reset(WEATHERSTATION ws2300);
 int rain_1h_reset(WEATHERSTATION ws2300);
 
 void rain_24h_max(unsigned char *data,
-                   double *rain_max,
-                   struct timestamp *time_max);
+                  double *rain_max,
+                  struct timestamp *time_max);
 
 int rain_24h_max_reset(WEATHERSTATION ws2300);
 
@@ -222,19 +222,19 @@ int rain_24h_reset(WEATHERSTATION ws2300);
 double rain_1w(unsigned char *data);
 
 void rain_1w_max(unsigned char *data,
-                   double *rain_max,
-                   struct timestamp *time_max);
+                 double *rain_max,
+                 struct timestamp *time_max);
 
 double rain_1m(unsigned char *data);
 
 void rain_1m_max(unsigned char *data,
-                   double *rain_max,
-                   struct timestamp *time_max);
+                 double *rain_max,
+                 struct timestamp *time_max);
 
 double rain_total(unsigned char *data);
 
 void rain_total_time(unsigned char *data,
-                   struct timestamp *time_since);
+                     struct timestamp *time_since);
 
 int rain_total_reset(WEATHERSTATION ws2300);
 
@@ -270,11 +270,11 @@ int read_history_info(WEATHERSTATION ws2300, int *interval, int *countdown,
 int read_history_record(WEATHERSTATION ws,
                         int record_no,
                         struct history_record *hr,
-			int outdoor_count);
+                        int outdoor_count);
 
 int read_last_history_record(WEATHERSTATION ws,
-                        struct history_record *hr,
-			     int outdoor_count);
+                             struct history_record *hr,
+                             int outdoor_count);
 
 void light(WEATHERSTATION ws2300, int control);
 
@@ -296,7 +296,7 @@ void close_weatherstation(WEATHERSTATION ws);
 void address_encoder(int address_in, unsigned char *address_out);
 
 void data_encoder(int number, unsigned char encode_constant,
-				  unsigned char *data_in, unsigned char *data_out);
+                  unsigned char *data_in, unsigned char *data_out);
 
 unsigned char numberof_encoder(int number);
 
@@ -317,8 +317,8 @@ int write_data(WEATHERSTATION ws, short address, int number, unsigned char *writ
 int read_safe(WEATHERSTATION ws2300, short address, int number, unsigned char *readdata);
 
 int write_safe(WEATHERSTATION ws2300, short address, int number,
-			   unsigned char encode_constant, unsigned char *writedata,
-			   unsigned char *commanddata);
+               unsigned char encode_constant, unsigned char *writedata,
+               unsigned char *commanddata);
 
 void read_next_byte_seq(WEATHERSTATION ws);
 void read_last_byte_seq(WEATHERSTATION ws);
