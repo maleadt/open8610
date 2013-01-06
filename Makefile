@@ -1,13 +1,10 @@
-####### Makefile for open8610 - manually generated
+####### Makefile for open8610 - manually created based on open2300 makefile
 #
-# Default locations are 
+# # Default locations of config file are 
 # 1. Path to config file including filename given as parameter
 # 2. ./open8610.conf
 # 3. /usr/local/etc/open8610.conf
 # 4. /etc/open8610.conf
-#
-# This makefile is made for Linux.
-# For Windows version modify the CC_LDFLAG by adding a -lwsock32
 #
 # You may want to adjust the 3 directories below
 
@@ -18,40 +15,37 @@ bindir = ${exec_prefix}/bin
 #########################################
 
 CC  = gcc
-OBJ = test8610.o rw8610.o linux8610.o win8610.o
-LOGOBJ = log8610.o rw8610.o linux8610.o win8610.o
-LOGEOBJ = log8610echo.o rw8610.o linux8610.o win8610.o
-FETCHOBJ = fetch8610.o rw8610.o linux8610.o win8610.o
-#WUOBJ = wu8610.o rw8610.o linux8610.o win8610.o
-#CWOBJ = cw8610.o rw8610.o linux8610.o win8610.o
-DUMPOBJ = dump8610.o rw8610.o linux8610.o win8610.o
-HISTOBJ = history8610.o rw8610.o linux8610.o win8610.o
-HISTLOGOBJ = histlog8610.o rw8610.o linux8610.o win8610.o
-DUMPBINOBJ = bin8610.o rw8610.o linux8610.o win8610.o
-XMLOBJ = xml8610.o rw8610.o linux8610.o win8610.o
-PGSQLOBJ = pgsql8610.o rw8610.o linux8610.o win8610.o
-LIGHTOBJ = light8610.o rw8610.o linux8610.o win8610.o
-INTERVALOBJ = interval8610.o rw8610.o linux8610.o win8610.o
-MINMAXOBJ = minmax8610.o rw8610.o linux8610.o win8610.o
-TESTOBJ = test8610.o rw8610.o linux8610.o win8610.o
+OBJ = test8610.o rw8610.o linux8610.o
+LOGOBJ = log8610.o rw8610.o linux8610.o
+LOGEOBJ = log8610echo.o rw8610.o linux8610.o
+MMRESOBJ = memreset8610.o rw8610.o linux8610.o
+FETCHOBJ = fetch8610.o rw8610.o linux8610.o
+WUOBJ = wu8610.o rw8610.o linux8610.o
+CWOBJ = cw8610.o rw8610.o linux8610.o
+DUMPOBJ = dump8610.o rw8610.o linux8610.o
+HISTOBJ = history8610.o rw8610.o linux8610.o
+HISTLOGOBJ = histlog8610.o rw8610.o linux8610.o
+DUMPBINOBJ = bin8610.o rw8610.o linux8610.o
+XMLOBJ = xml8610.o rw8610.o linux8610.o
+PGSQLOBJ = pgsql8610.o rw8610.o linux8610.o
+LIGHTOBJ = light8610.o rw8610.o linux8610.o
+INTERVALOBJ = interval8610.o rw8610.o linux8610.o
+MINMAXOBJ = minmax8610.o rw8610.o linux8610.o
+TESTOBJ = test8610.o rw8610.o linux8610.o
 
 VERSION = 0.10
 
-CFLAGS = -Wall -O3 -DVERSION=$(VERSION) -DWIN32=1
-#CC_LDFLAGS = -lm
-#CC_WINFLAG = 
-# For Windows - comment the two line above and un-comment the two lines below.
-CC_LDFLAGS = -lm -lwsock32 -static
-CC_WINFLAG = -mwindows
+CFLAGS = -Wall -O3 -DVERSION=$(VERSION)
+CC_LDFLAGS = -lm
 INSTALL = install
 
 ####### Build rules
 
-all: dump8610 history8610 log8610 log8610echo
+all: dump8610 history8610 log8610 log8610echo memreset8610
 
 test8610 : $(OBJ)
 	$(CC) $(CFLAGS) -o $@ $(OBJ) $(CC_LDFLAGS)
-
+	
 open8610 : $(OBJ)
 	$(CC) $(CFLAGS) -o $@ $(OBJ) $(CC_LDFLAGS)
 	
@@ -69,12 +63,12 @@ memreset8610 : $(MMRESOBJ)
 
 fetch8610 : $(FETCHOBJ)
 	$(CC) $(CFLAGS) -o $@ $(FETCHOBJ) $(CC_LDFLAGS)
-	
+
 wu8610 : $(WUOBJ)
-	$(CC) $(CFLAGS) -o $@ $(WUOBJ) $(CC_LDFLAGS) $(CC_WINFLAG)
+	$(CC) $(CFLAGS) -o $@ $(WUOBJ) $(CC_LDFLAGS)
 	
 cw8610 : $(CWOBJ)
-	$(CC) $(CFLAGS) -o $@ $(CWOBJ) $(CC_LDFLAGS) $(CC_WINFLAG)
+	$(CC) $(CFLAGS) -o $@ $(CWOBJ) $(CC_LDFLAGS)
 
 history8610 : $(HISTOBJ)
 	$(CC) $(CFLAGS) -o $@ $(HISTOBJ) $(CC_LDFLAGS)
@@ -86,20 +80,20 @@ bin8610 : $(DUMPBINOBJ)
 	$(CC) $(CFLAGS) -o $@ $(DUMPBINOBJ) $(CC_LDFLAGS)
 
 xml8610 : $(XMLOBJ)
-	$(CC) $(CFLAGS) -o $@ $(XMLOBJ) $(CC_LDFLAGS) $(CC_WINFLAG)
+	$(CC) $(CFLAGS) -o $@ $(XMLOBJ) $(CC_LDFLAGS)
 
 mysql8610:
-	$(CC) $(CFLAGS) -o mysql8610 mysql8610.c rw8610.c linux8610.c $(CC_LDFLAGS) $(CC_WINFLAG) -I/usr/include/mysql -L/usr/lib/mysql -lmysqlclient
+	$(CC) $(CFLAGS) -o mysql8610 mysql8610.c rw8610.c linux8610.c $(CC_LDFLAGS) -I/usr/include/mysql -L/usr/lib/mysql -lmysqlclient
 
 pgsql8610: $(PGSQLOBJ)
-	$(CC) $(CFLAGS) -o $@ $(PGSQLOBJ) $(CC_LDFLAGS) $(CC_WINFLAG) -I/usr/include/pgsql -L/usr/lib/pgsql -lpq
+	$(CC) $(CFLAGS) -o $@ $(PGSQLOBJ) $(CC_LDFLAGS) -I/usr/include/pgsql -L/usr/lib/pgsql -lpq
 
 light8610: $(LIGHTOBJ)
 	$(CC) $(CFLAGS) -o $@ $(LIGHTOBJ) $(CC_LDFLAGS)
-
+	
 interval8610: $(INTERVALOBJ)
 	$(CC) $(CFLAGS) -o $@ $(INTERVALOBJ) $(CC_LDFLAGS)
-
+	
 minmax8610: $(MINMAXOBJ)
 	$(CC) $(CFLAGS) -o $@ $(MINMAXOBJ) $(CC_LDFLAGS) $(CC_WINFLAG)
 
