@@ -11,7 +11,6 @@
  *  This program is published under the GNU General Public license
  */
 
-#ifndef WIN32
 #define DEBUG 0
 
 #include "rw8610.h"
@@ -346,5 +345,3 @@ void nanodelay(long ns)
      sleepTime.tv_nsec = ns;
      nanosleep(&sleepTime, &returnTime);
 }
-
-#endif

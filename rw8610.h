@@ -7,13 +7,7 @@
 #ifndef _INCLUDE_RW8610_H_
 #define _INCLUDE_RW8610_H_
 
-#ifdef WIN32
-#include "win8610.h"
-#endif
-
-#ifndef WIN32
 #include "linux8610.h"
-#endif
 
 #include <string.h>
 #include <fcntl.h>
