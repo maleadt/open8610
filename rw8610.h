@@ -340,7 +340,6 @@ int read_device(WEATHERSTATION serdevice, unsigned char *buffer, int size);
 int write_device(WEATHERSTATION serdevice, unsigned char *buffer, int size);
 //void sleep_very_short(int n);
 void sleep_short(int milliseconds);
-void sleep_long(int seconds);
 int http_request_url(char *urlline);
 int citizen_weather_send(struct config_type *config, char *datastring);
 void set_DTR(WEATHERSTATION ws, int val);
